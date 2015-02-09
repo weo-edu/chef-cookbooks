@@ -1,3 +1,0 @@
-[submodule "chef-mongodb"]
-	path = chef-mongodb
-	url = https://github.com/weo-edu/chef-mongodb
