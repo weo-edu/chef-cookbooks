@@ -221,6 +221,7 @@ define :mongodb_instance,
         Chef::Log.info('node #{node.name}')
       end
     else
+      Chef::Log.info('else case using search()')
       rs_nodes = search(
         :node,
         "mongodb_cluster_name:#{new_resource.replicaset['mongodb']['cluster_name']} AND \
