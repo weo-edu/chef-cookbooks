@@ -215,7 +215,11 @@ define :mongodb_instance,
   # replicaset
   if new_resource.is_replicaset && new_resource.auto_configure_replicaset
     if OpsWorksHelper.opsworks?(node)
+      Chef::Log.info('detected opsworks, calling replicaset_members')
       rs_nodes = OpsWorksHelper.replicaset_members(node)
+      rs_nodes.each do |node|
+        Chef::Log.info('node #{node.name}')
+      end
     else
       rs_nodes = search(
         :node,
