@@ -211,7 +211,7 @@ define :mongodb_instance,
       # we don't care about a running mongodb service in these cases, all we need is stopping it
     ignore_failure true if new_resource.name == 'mongodb'
   end
-
+  Chef::Log.info('asdfasdfasdfasdf')
   # replicaset
   if new_resource.is_replicaset && new_resource.auto_configure_replicaset
     if OpsWorksHelper.opsworks?(node)
@@ -233,11 +233,13 @@ define :mongodb_instance,
 
     ruby_block 'config_replicaset' do
       block do
+        Chef::Log.info('running config_replicaset')
         MongoDB.configure_replicaset(new_resource.replicaset, replicaset_name, rs_nodes) unless new_resource.replicaset.nil?
       end
       action :nothing
     end
 
+    Chef::Log.info('chef log run_config_replicaset')
     ruby_block 'run_config_replicaset' do
       block {}
       notifies :create, 'ruby_block[config_replicaset]'

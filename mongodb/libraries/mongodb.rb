@@ -26,7 +26,7 @@ class Chef::ResourceDefinitionList::MongoDB
     # lazy require, to move loading this modules to runtime of the cookbook
     require 'rubygems'
     require 'mongo'
-
+    Chef::Log.info('self.configure_replicaset')
     if members.length == 0
       if Chef::Config[:solo]
         Chef::Log.warn('Cannot search for member nodes with chef-solo, defaulting to single node replica set')
