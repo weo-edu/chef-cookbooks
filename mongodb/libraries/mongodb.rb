@@ -53,11 +53,11 @@ class Chef::ResourceDefinitionList::MongoDB
     rs_members = []
     rs_options = {}
     members.each_index do |n|
-      Chef::Log.info("test1 #{{members}[n]}")
-      Chef::Log.info("test2 #{{members}[n]['fqdn']}")
-      Chef::Log.info("test3 #{{members}[n]['mongodb']}")
-      Chef::Log.info("test4 #{{members}[n]['mongodb']['config']}")
-      Chef::Log.info("test5 #{{members}[n]['mongodb']['config']['port']}")
+      Chef::Log.info("test1 #{members[n]}")
+      Chef::Log.info("test2 #{members[n]['fqdn']}")
+      Chef::Log.info("test3 #{members[n]['mongodb']}")
+      Chef::Log.info("test4 #{members[n]['mongodb']['config']}")
+      Chef::Log.info("test5 #{members[n]['mongodb']['config']['port']}")
 
       host = "#{members[n]['fqdn']}:#{members[n]['mongodb']['config']['port']}"
       rs_options[host] = {}
