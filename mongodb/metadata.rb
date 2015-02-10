@@ -13,7 +13,6 @@ recipe "mongodb::shard", "Installs and configures a single shard"
 recipe "mongodb::replicaset", "Installs and configures a mongodb replicaset"
 
 depends "apt", ">= 1.8.2"
-depends "apt"
 depends "python"
 depends "runit"
 depends "yum"
