@@ -218,7 +218,7 @@ define :mongodb_instance,
       Chef::Log.info('detected opsworks, calling replicaset_members')
       rs_nodes = OpsWorksHelper.replicaset_members(node)
       rs_nodes.each do |node|
-        Chef::Log.info('node #{node.name}')
+        Chef::Log.info("node #{node.name}")
       end
     else
       Chef::Log.info('else case using search()')
