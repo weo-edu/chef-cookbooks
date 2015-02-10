@@ -67,7 +67,6 @@ suites:
 
 - name: replicaset
   run_list:
-  - "recipe[chef-solo-search]"
   - "recipe[mongodb::replicaset]"
   attributes:
     mongodb:
@@ -84,7 +83,6 @@ suites:
 
 - name: mongos
   run_list:
-  - "recipe[chef-solo-search]"
   - "recipe[mongodb::mongos]"
   attributes:
     mongodb:
